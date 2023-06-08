@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LocalEyes</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://kit.fontawesome.com/f70f405755.js" crossorigin="anonymous"></script>
+</head>
+<body>
+    <div class="container">
+        <div class="form">
+            <h1 class="sign-up" id="title">Sign Up</h1>
+            <form action="">
+                <div class="input-group">
+                    <div class="input-field" id="nameField">
+                        <i class="fa-solid fa-user"></i>
+                        <input type="text" placeholder="Name">
+                    </div>
+
+                    <div class="input-field">
+                        <i class="fa-solid fa-envelope"></i>
+                        <input type="email" placeholder="Email">
+                    </div>
+
+                    <div class="input-field">
+                        <i class="fa-solid fa-lock"></i>
+                        <input type="password" placeholder="Password">
+                    </div>
+                    <p class="lp">Lost Password <a class="lpa" href="#">Click Here!</a></p>
+                </div>
+                <div class="btn-field">
+                    <button class="sign-btn" type="button" id="signupBtn">Sign up</button>
+                    <button class="sign-btn" type="button" id="signinBtn">Sign in</button>
+                </div>
+            </form>
+        </div>
+    </div>
+    <script src="https://www.gstatic.com/firebasejs/9.20.0/firebase-app.js"></script>
+	<script src="https://www.gstatic.com/firebasejs/9.20.0/firebase-auth.js"></script>
+
+<script>
+    let signupBtn = document.getElementById("signupBtn");
+    let signinBtn = document.getElementById("signinBtn");
+    let nameField = document.getElementById("nameField");
+    let title = document.getElementById("title");
+
+    signinBtn.onclick = function(){
+        nameField.style.maxHeight = "0";
+        title.innerHTML = "Sign In";
+        signupBtn.classList.add("sign-btn");
+        signinBtn.classList.remove("sign-btn");
+    }
+
+    signupBtn.onclick = function(){
+        nameField.style.maxHeight = "60px";
+        title.innerHTML = "Sign Up";
+        signupBtn.classList.remove("sign-btn");
+        signinBtn.classList.add("sign-btn");
+    }
+
+</script>
+</body>
+</html>

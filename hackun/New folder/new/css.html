@@ -1,0 +1,84 @@
+Here's the code you can use:
+
+```html
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Upload Image</title>
+</head>
+<body>
+	<form>
+		<label for="file">Select Image:</label>
+		<input type="file" id="file" name="file"><br><br>
+		<label for="name">Name:</label>
+		<input type="text" id="name" name="name"><br><br>
+		<button type="button" onclick="uploadImage()">Upload Image</button>
+	</form>
+
+	<script src="https://www.gstatic.com/firebasejs/9.20.0/firebase-app.js"></script>
+	<script src="https://www.gstatic.com/firebasejs/9.20.0/firebase-auth.js"></script>
+
+	<script>
+	  // Your web app's Firebase configuration
+	  const firebaseConfig = {
+        apiKey: "AIzaSyDUPIIn108VKdHc0ZOj-dCNVdCzLN4RSHw",
+        authDomain: "nscodeuploadtask.firebaseapp.com",
+        projectId: "nscodeuploadtask",
+        storageBucket: "nscodeuploadtask.appspot.com",
+        messagingSenderId: "434113318323",
+        appId: "1:434113318323:web:6c4a33fdddf1fbf5ff0fc6"
+    };
+    
+	  // Initialize Firebase
+	  firebase.initializeApp(firebaseConfig);
+
+	  var fileText = document.querySelector(".fileText");
+	  var uploadPercentage = document.querySelector(".uploadPercentage");
+	  var progress =  document.querySelector(".progress");
+	  var percentVal;
+	  var fileItem;
+	  var fileName;
+	  var img = document.querySelector(".img");
+	   function getFile(e){
+	      fileItem = e.target.files[0];
+	      fileName = fileItem.name;
+	      fileText.innerHTML = fileName;
+	   }
+
+
+	   function uploadImage(){
+
+	      let storageRef = firebase.storage().ref("images/"+fileName);
+	      let uploadTask = storageRef.put(fileItem);
+
+
+	      uploadTask.on("state_changed",(snapshot)=>{
+	          console.log(snapshot);
+	          percentVal = Math.floor((snapshot.bytesTransferred/snapshot.totalBytes)*100);
+	          console.log(percentVal);
+	          uploadPercentage.innerHTML = percentVal+"%";
+	          progress.style.width=percentVal+"%";
+	      },(error)=>{
+	          console.log("Error is ", error);
+	      },()=>{
+
+	          uploadTask.snapshot.ref.getDownloadURL().then((url)=>{
+	              console.log("URL", url);
+
+	              if(url != ""){
+	                  img.setAttribute("src",url);
+	                  img.style.display="block";
+	              }
+
+
+	          })
+
+
+	      })
+
+
+	   }
+	</script>
+
+</body>
+</html>

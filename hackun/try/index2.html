@@ -1,0 +1,143 @@
+<html>
+
+<head>
+    <script>
+        window.history.forward(1);
+    </script>
+
+    <meta http-equiv="Content-Type" content="text/html; charset=windows-1252">
+    <title>Jaypee University of Information Technology</title>
+
+    <SCRIPT ID=clientEventHandlersJS LANGUAGE=javascript>
+        function UserType_onchange() {
+            var mUserType;
+            mUserType = LoginForm.UserType.value;
+            if (mUserType == 'S') {
+                LoginForm.txtCode.value = "Enrollment No";
+            } else if (mUserType == 'E') {
+                LoginForm.txtCode.value = "Employee Code";
+            } else if (mUserType == 'P') {
+                LoginForm.txtCode.value = "Enrollment No";
+            } else {
+                LoginForm.txtCode.value = "Guest ID";
+            }
+        }
+
+        function MemberCode_onchange() {
+            var mUserCode;
+            mUserCode = LoginForm.MemberCode.value;
+            LoginForm.MemberCode.value = mUserCode.toUpperCase();
+        }
+    </SCRIPT>
+    <script language="Javascript1.1">
+        function detect() {
+            if (screen.width > 800 || screen.height > 600) {
+                alert("This web page is best viewed with a screen resolution of 800 * 600. Your current resolution is " + screen.width + " by " + screen.height + ". If possible please change your monitor resolution as 800 * 600 ")
+            }
+        }
+        // detect();
+    </script>
+</head>
+
+<BODY aLink=#ff00ff bgColor='#d6d2d6' rightmargin=0 leftmargin=0 topmargin=0 bottommargin=0>
+
+    <table bgcolor='#a43f06' align=center valign="middle" cellpadding=0 cellspacing=0 border=0 style="WIDTH: 680px; HEIGHT: 500px" rules="none">
+        <tr>
+            <td colspan=2 style="WIDTH: 742px; HEIGHT: 106px">
+                <table bgcolor='#a43f06' cellpadding=0 cellspacing=0 border=0 background="Images/header.jpg" style="WIDTH: 742px; HEIGHT: 106px">
+                    <tr>
+                        <td>&nbsp;</td>
+                    </tr>
+                </table>
+            </td>
+        </tr>
+        <tr>
+            <td style="WIDTH: 738px; HEIGHT: 81px" colspan=2>
+                <table bgcolor='#a43f06' cellpadding=0 cellspacing=0 border=0 background="Images/panel-below-header.jpg" style="WIDTH: 742px; HEIGHT: 81px">
+                    <tr>
+                        <td>&nbsp;</td>
+                    </tr>
+                </table>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <table bgcolor='#a43f06' background='Images/centre-left.jpg' cellpadding=0 cellspacing=0 border=0 style="WIDTH: 430px; HEIGHT: 286px">
+                    <tr>
+                        <td>&nbsp;</td>
+                    </tr>
+                </table>
+            </td>
+            <td>
+                <table bgcolor='#a43f06' align=cenetr background='Images/centre-right.jpg' cellpadding=0 cellspacing=0 border=0 style="WIDTH: 312px; HEIGHT: 286px" rules=none>
+                    <form method=post action="CommonFiles/UserAction.jsp" name="LoginForm">
+                        <tr>
+                            <td align=center>
+
+                                <br><br>
+                                <INPUT id=txtInst style="BORDER-BOTTOM: medium none; BORDER-LEFT-STYLE: none; BORDER-RIGHT-STYLE: none; BORDER-TOP-STYLE: none; FONT-FAMILY: sans-serif; FONT-SIZE: x-small; FONT-STYLE: normal; HEIGHT: 19px; TEXT-ALIGN: right; VERTICAL-ALIGN: middle; WIDTH: 99px"
+                                    size=12 value="Institute" name=txtInst readOnly tabIndex=100 height="22" width="99" align=right>
+                                <select size="1" name="InstCode" tabindex="1" style="VERTICAL-ALIGN: middle; WIDTH: 99px">
+          <OPTION Value="JUIT" selected>JUIT</OPTION>
+         <OPTION Value="JUSC">JUSC</OPTION>
+          </select>
+                                <FONT color=red><sub>*</sub></FONT><br>
+                                <INPUT id=txtUType style="BORDER-BOTTOM: medium none; BORDER-LEFT-STYLE: none; BORDER-RIGHT-STYLE: none; BORDER-TOP-STYLE: none; FONT-FAMILY: sans-serif; FONT-SIZE: x-small; FONT-STYLE: normal; HEIGHT: 19px; TEXT-ALIGN: right; VERTICAL-ALIGN: middle; WIDTH: 99px"
+                                    size=12 value="Member Type" name=txtuType readOnly tabIndex=100 height="22" width="99" align=right>
+                                <select size="1" name="UserType" tabindex="1" language="Javascript" onchange="UserType_onchange()" style="VERTICAL-ALIGN: middle; WIDTH: 99px">
+          <OPTION Value="S" selected>Students</OPTION>
+          <OPTION Value="E">Employee </OPTION>
+          <OPTION Value="G">Guest </OPTION>
+          <OPTION Value="P">Parent </OPTION>
+          </select>
+                                <FONT color=red><sub>*</sub></FONT><br>
+                                <INPUT Readonly name=txtCode value="Enrollment No" style="BORDER-BOTTOM: medium none; BORDER-LEFT-STYLE: none; BORDER-RIGHT-STYLE: none; BORDER-TOP-STYLE: none; FONT-FAMILY: sans-serif; FONT-SIZE: x-small; FONT-STYLE: normal; HEIGHT: 22px; TEXT-ALIGN: right; 
+          VERTICAL-ALIGN: middle; WIDTH: 99px" size=12 lowsrc="" tabIndex=101 width="99">
+                                <input name="MemberCode" size="11" tabindex="2" LANGUAGE=javascript onchange="MemberCode_onchange();" style="VERTICAL-ALIGN: middle; WIDTH: 99px">
+                                <FONT color=red><sub>*</sub></FONT>
+                                <br>&nbsp;&nbsp;&nbsp;&nbsp;
+                                <INPUT id=txtPIN style="BORDER-BOTTOM: medium none; BORDER-LEFT-STYLE: none; BORDER-RIGHT-STYLE: none; BORDER-TOP-STYLE: none; FONT-FAMILY: sans-serif; FONT-SIZE: x-small; FONT-STYLE: normal; HEIGHT: 19px; TEXT-ALIGN: right; VERTICAL-ALIGN: middle; WIDTH: 85px"
+                                    size=15 name=txtPin readOnly value="Password/Pin" tabIndex=103 width="99">
+                                <input type="password" name="Password" size="10" tabindex="3" style="HEIGHT: 22px; VERTICAL-ALIGN: middle; WIDTH: 99px">&nbsp;
+                                <font color="red"><sub>*</sub></font>
+                                <INPUT id=BTNSubmit style="FONT-FAMILY: Arial; FONT-SIZE: x-small; HEIGHT: 25px; VERTICAL-ALIGN: top; WIDTH: 95px" tabIndex=4 type=submit size=30 value=Submit name=BTNSubmit height="25">
+
+                                <INPUT id=BTNReset style="FONT-FAMILY: Arial; FONT-SIZE: x-small; HEIGHT: 25px; VERTICAL-ALIGN: top; WIDTH: 94px" tabIndex=5 type=reset size=30 value=Reset name=BTNReset height="25">
+                                <BR>
+                                <BR>
+                                <BR>
+                                <A Title="New User! Register here..." Target=_New href="CommonFiles/StudentSignUp.jsp">
+                                    <FONT size=2 color=blue name="arial">Sign Up</FONT>
+                                </A>&nbsp;&nbsp;&nbsp;
+                                <A Title="This page is under construction!" Target=_New href="Images/UnderConstruction.gif" tabIndex=5>
+                                    <FONT size=2 color=blue name="arial">Forgot Password</FONT>
+                                </A>&nbsp;&nbsp;&nbsp;
+                                <A Target=_New href="AdminLogin.jsp">
+                                    <FONT size=2 color=blue name="arial">Admin Login</FONT>
+                                </A>
+                                <!--<A Target=_New href="Ora8iToMemberMaster.jsp"><FONT size=2 color=blue name="arial">ORA2MEM</FONT></A>-->
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <b><font face=verdana color= darkbrown size=2> Staff & Students of JUIT can now access their Webkiosk through Internet. <a href= "https://www.juit.ac.in:8443"> click here</a></font> </b>
+
+                            </td>
+                        </tr>
+                    </form>
+                </table>
+            </td>
+        </tr>
+        <tr>
+            <td align=center colspan=2 style="WIDTH: 740px; HEIGHT: 47px">
+                <table bgcolor='#a43f06' cellpadding=0 cellspacing=0 border=0 background="Images/footer.jpg" style="WIDTH: 740px; HEIGHT: 47px">
+                    <tr>
+                        <td align=right></td>
+                    </tr>
+                </table>
+            </td>
+        </tr>
+    </table>
+</BODY>
+
+</HTML>
